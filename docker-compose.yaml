@@ -5,7 +5,8 @@ services:
       dockerfile: Dockerfile.backend
     container_name: backend
     volumes:
-      - ./project/backend:/app/backend
+      - mysql-data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d 
     ports:
       - "3000:3000"
     depends_on:
